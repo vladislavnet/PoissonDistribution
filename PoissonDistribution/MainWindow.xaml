@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PoissonDistribution"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="600" 
@@ -84,7 +85,47 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Калькулятор" Width="247" >
-
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,5">
+                            <Label Content="Число испытаний = "
+                                   HorizontalContentAlignment="Right"
+                                   Width="190"/>
+                            <TextBox Width="180"
+                                     x:Name="txtCountTests"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,5">
+                            <Label Content="Вероятность = " 
+                                   HorizontalContentAlignment="Right"
+                                   Width="190"/>
+                            <TextBox Width="180"
+                                     x:Name="txtProbability"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,10">
+                            <Label Content="Вычислить вероятность для = " 
+                                   HorizontalContentAlignment="Right"
+                                   Width="190"                                   />
+                            <TextBox Width="180" x:Name="txtM"/>
+                        </StackPanel>
+                        <Button Content="Вычислить" 
+                                Height="25"
+                                Width="100"
+                                Margin="0,0,0,20"
+                                Click="Button_Click"/>
+                        <lvc:CartesianChart Series="{Binding SeriesCollection}" 
+                                            LegendLocation="Right" 
+                                            Width="600"
+                                            Height="300"
+                                            >
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="" Labels="{Binding XFormatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Задачи" Width="247">
 

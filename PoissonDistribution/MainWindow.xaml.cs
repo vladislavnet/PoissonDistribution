@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace PoissonDistribution
 {
@@ -20,6 +22,11 @@ namespace PoissonDistribution
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Poisson poissonDistribution;
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] XFormatter { get; set; }
+        public Func<double, string> YFormatter { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +38,35 @@ namespace PoissonDistribution
         private void WindowPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                poissonDistribution = new Poisson(int.Parse(txtCountTests.Text),
+                    double.Parse(txtProbability.Text), int.Parse(txtM.Text));
+                printChart(poissonDistribution);
+                DataContext = this;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void printChart(Poisson pd)
+        {
+            double[] propabilities = pd.getProbabilities();
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Распределение Пуассона",
+                    Values = new ChartValues<double> (propabilities)                    
+                },             
+            };
+            XFormatter = pd.getMCollection();
+            YFormatter = value => value.ToString("F3");
         }
     }
 }
