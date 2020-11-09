@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,26 +22,23 @@ namespace PoissonDistribution
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private Poisson poissonDistribution;
         public SeriesCollection SeriesCollection { get; set; }
         public string[] XFormatter { get; set; }
         public Func<double, string> YFormatter { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-        private void WindowPanel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
 
+        public void OnPropertyChanged([CallerMemberName] string prop = "") 
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -57,6 +56,7 @@ namespace PoissonDistribution
         private void printChart(Poisson pd)
         {
             double[] propabilities = pd.getProbabilities();
+
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -67,6 +67,16 @@ namespace PoissonDistribution
             };
             XFormatter = pd.getMCollection();
             YFormatter = value => value.ToString("F6");
+
+            OnPropertyChanged(nameof(SeriesCollection));
+            OnPropertyChanged(nameof(XFormatter));
+            OnPropertyChanged(nameof(YFormatter));
         }
+
+        private void btnCloseWindow_Click(object sender, RoutedEventArgs e) 
+            => Close();      
+        private void WindowPanel_MouseDown(object sender, MouseButtonEventArgs e) 
+            => DragMove();       
+
     }
 }
