@@ -13,6 +13,11 @@ namespace PoissonDistribution
             CountTests = countTests;
             Probability = probability;
             M = m;
+            //double[] factmas = new double[20];
+            //for (int i = 0; i < factmas.Length; i++)
+            //{
+            //    factmas[i] = factorial(i + 1);
+            //}
         }
         public int CountTests { get; }
         public double Probability { get; }
@@ -38,7 +43,7 @@ namespace PoissonDistribution
             return mStrings;
         }
 
-        private int factorial(int x)
+        private double factorial(double x)
         {
             if (x == 0)
                 return 1;

@@ -61,12 +61,12 @@ namespace PoissonDistribution
             {
                 new LineSeries
                 {
-                    Title = "Распределение Пуассона",
+                    Title = string.Empty,
                     Values = new ChartValues<double> (propabilities)                    
                 },             
             };
             XFormatter = pd.getMCollection();
-            YFormatter = value => value.ToString("F3");
+            YFormatter = value => value.ToString("F6");
         }
     }
 }
