@@ -80,7 +80,55 @@
             <TabItem Header="Общая информация" Width="247">
                 <ScrollViewer>
                     <StackPanel>
-                        <Label Content="Определение" FontWeight="Bold"/>
+                        <Expander Header="Определение" FontSize="18" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                            <Bold>Распределение Пуассона</Bold> — распределение дискретного типа случайной величины, представляющей собой число событий, произошедших за фиксированное время, при условии, что данные события происходят с некоторой фиксированной средней интенсивностью и независимо друг от друга.
+                                </TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                            Распределение Пуассона также называется распределением редких событий.
+                                </TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                            Примерами могут служить число частиц радиоактивного распада, зарегистрированных счетчиком в течении некоторого времени t, число вызовов, поступивших на телефонную станцию за время t, число дефектов в куске ткани или в ленте фиксированной длины, число изюминок в кексе и т.д.
+                                </TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                            Наконец, распределение Пуассона дает хорошую аппроксимацию биномиального распределения для больших значений n и малых значений р: Bi(n, p) П(np), если np не велико. Это свойство позволяет значительно упростить вычисления в биномиальной модели при указанных условиях.
+                                </TextBlock>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Историческая справка" FontSize="18" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2">
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                            <Bold>Симеон Дени Пуассон</Bold> (фр. Siméon Denis Poisson; 21 июня 1781, Питивье, Франция — 25 апреля 1840, Франция) — французский математик, механик и физик.
+                                </TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                            Пуассон в своей книге (Poisson, 1837, Secs. 73, pp. 189-190 and Secs. 81, pp. 205 207) опубликовал вывод распределения, в дальнешем, получившего его имя. Распределение выводится, как предел последовательности биномиальных распределений
+                                </TextBlock>
+                                <Image x:Name="Image1_png" Height="111" Source="Image1.png" Stretch="Fill" Width="602"/>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                    при  N, стремящемся к бесконечности, р стремящемся к нулю. Произведение Np остается конечным и равным θ. Нетрудно установить непосредственным подсчетом, что
+                                </TextBlock>
+                                <Image x:Name="Image3_png" Height="87" Source="Image3.png" Stretch="Fill" Width="297"/>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">Где <Image x:Name="Image4_png" Height="58" Source="Image4.png" Stretch="Fill" Width="41"/>
+ означает суммирование по любому (конечному или бесконечному) подмножеству  неотрицательных целых чисел 0, 1, 2, ... .</TextBlock>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Формула" FontSize="18" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2">
+                            <StackPanel>
+                                <Image x:Name="Image5_png" Height="73" Source="Image5.png" Stretch="Fill" Width="150"/>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">где m число наступления события A;</TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14"><Image x:Name="Image6_png" Height="21" Source="Image6.png" Stretch="Fill" Width="81"/> - среднее значение распределения Пуассона;</TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">дисперсия: <Image x:Name="Image7_png" Height="21" Source="Image7.png" Stretch="Fill" Width="48"/></TextBlock>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Характеристики случайной величины, распределённой по закону Пуассона" FontSize="18" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2">
+                            <StackPanel>
+                                
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">математическое ожидание: <Image x:Name="Image8_png" Height="21" Source="Image8.png" Stretch="Fill" Width="73"/></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">стандартное отклонение: <Image x:Name="Image10_png" Height="24" Source="Image10.png" Stretch="Fill" Width="53"/></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">дисперсия: <Image x:Name="Image11_png" Height="21" Source="Image11.png" Stretch="Fill" Width="48"/></TextBlock>
+                            </StackPanel>
+                        </Expander>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
