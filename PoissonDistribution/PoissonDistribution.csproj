@@ -106,5 +106,38 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="formulas\Image11.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
