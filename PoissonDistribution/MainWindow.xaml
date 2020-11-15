@@ -136,24 +136,108 @@
                 <ScrollViewer>
                     <StackPanel Orientation="Vertical" Margin="0,20,0,0">
                         <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,5">
-                            <Label Content="Число испытаний = "
+                            <Label Content="n = "
                                    HorizontalContentAlignment="Right"
                                    Width="190"/>
                             <TextBox Width="180"
                                      x:Name="txtCountTests"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,5">
-                            <Label Content="Вероятность = " 
+                            <Label Content="p = " 
                                    HorizontalContentAlignment="Right"
                                    Width="190"/>
                             <TextBox Width="180"
                                      x:Name="txtProbability"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,10">
-                            <Label Content="Вычислить вероятность для = " 
+                        <!--<StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,10">
+                            <Label Content="Вычислить вероятность для m = " 
                                    HorizontalContentAlignment="Right"
                                    Width="190"                                   />
                             <TextBox Width="180" x:Name="txtM"/>
+                        </StackPanel>-->
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox x:Name="cbWillCome"
+                                      Content="Наступит"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <TextBox x:Name="txtWillCome"
+                                     Width="50"/>
+                            <Label Content="раз" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox x:Name="cbLess"
+                                      Content="Менее"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <TextBox Width="50"
+                                     x:Name="txtLess"/>
+                            <Label Content="раз" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox Content="Не менее"
+                                      x:Name="cbNotLess"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <TextBox Width="50"
+                                     x:Name="txtNotLess"/>
+                            <Label Content="раз" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox Content="Более"
+                                      x:Name="cbMore"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <TextBox Width="50"
+                                     x:Name="txtMore"/>
+                            <Label Content="раз" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox Content="Не более"
+                                      x:Name="cbNoMore"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <TextBox Width="50"
+                                     x:Name="txtNoMore"/>
+                            <Label Content="раз" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox Content="Не менее"
+                                      x:Name="cbNotLessNoMore"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <TextBox Width="50"
+                                     x:Name="txtNotLessNotMore1"/>
+                            <Label Content="и не более"/>
+                            <TextBox Width="50"
+                                     x:Name="txtNotLessNotMore2"/>
+                            <Label Content="раз" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Width="371"
+                                    Margin="0,0,0,5">
+                            <CheckBox Content="Наступит хотя бы раз"
+                                      x:Name="cbStepAtLeastOnce"
+                                      VerticalAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Margin="0,0,5,0"/>
                         </StackPanel>
                         <Button Content="Вычислить" 
                                 Height="25"
@@ -168,18 +252,21 @@
                                             Height="300"
                                             >
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="" LabelFormatter="{Binding YFormatter,
+                                <lvc:Axis Title="P(X = m)" LabelFormatter="{Binding YFormatter,
                                           UpdateSourceTrigger=PropertyChanged,
                                           Mode=TwoWay}">
                                 </lvc:Axis>
                             </lvc:CartesianChart.AxisY>
                             <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="" Labels="{Binding XFormatter,
+                                <lvc:Axis Title="m" Labels="{Binding XFormatter,
                                           UpdateSourceTrigger=PropertyChanged,
                                           Mode=TwoWay}">
                                 </lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
+                        <StackPanel x:Name="spTextcontent" Orientation="Vertical">
+                            
+                        </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
