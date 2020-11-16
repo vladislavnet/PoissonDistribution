@@ -139,5 +139,16 @@
   <ItemGroup>
     <Resource Include="formulas\Image11.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="decision\image1.png" />
+    <Resource Include="decision\image2.png" />
+    <Resource Include="decision\image3.png" />
+    <Resource Include="decision\image4.png" />
+    <Resource Include="decision\image5.png" />
+    <Resource Include="decision\image6.png" />
+    <Resource Include="decision\image7.png" />
+    <Resource Include="decision\image8.png" />
+    <Resource Include="decision\image9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

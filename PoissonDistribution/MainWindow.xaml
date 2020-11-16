@@ -285,10 +285,27 @@
                                 <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
                                     В новом микрорайоне поставлено 10000 кодовых замков на входных дверях домов. Вероятность выхода из строя одного замка в течение месяца равна 0,0002. Найти вероятность того, что за месяц откажет ровно 1 замок.
                                 </TextBlock>
-                                <Expander Header="Ответ" FontSize="14" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
-                                    <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
-                                        Ответ: 0,2707...
-                                    </TextBlock>
+                                <Expander Header="Решение" FontSize="14" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                                    <StackPanel>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            В данном случае количество «испытаний» n=10000 велико, а вероятность «успеха» в каждом из них – мала: p=0,0002, поэтому используем формулу Пуассона:
+                                        </TextBlock>
+                                        <Image x:Name="Image12_png" Height="48" Source="decision/Image1.png" Stretch="Fill" Width="90" HorizontalAlignment="Left"/>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            <Image x:Name="Image13_png" Height="23" Source="decision/Image2.png" Stretch="Fill" Width="185"/>
+                                            – по существу, это среднеожидаемое количество вышедших из строя замков.
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            Таким образом:
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            <Image x:Name="Image14_png" Height="42" Source="decision/Image3.png" Stretch="Fill" Width="181"/>
+                                            – вероятность того, что за месяц из строя выйдет ровно m = 1 один замок (из 10 тысяч).
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            <Bold>Ответ:</Bold> 0,2707...
+                                        </TextBlock>
+                                    </StackPanel>
                                 </Expander>
                             </StackPanel>
                         </Expander>
@@ -297,10 +314,53 @@
                                 <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
                                    Завод отправил в торговую сеть 500 изделий. Вероятность повреждения изделия в пути равна 0,003. Найти вероятность того, что при транспортировке будет повреждено: а) ни одного изделия, б) ровно три изделия, в) более трех изделий.
                                 </TextBlock>
-                                <Expander Header="Ответ" FontSize="14" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
-                                    <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
-                                        Ответ: а) 0,2231... б) 0,1255... в) 0,0656
-                                    </TextBlock>
+                                <Expander Header="Решение" FontSize="14" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                                    <StackPanel>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            используем формулу Пуассона:
+                                        </TextBlock>
+                                        <Image x:Name="Image15_png" Height="49" Source="decision/Image1.png" Stretch="Fill" Width="90" HorizontalAlignment="Left"/>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            В данном случае:
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                             <Image x:Name="Image16_png" Height="24" Source="decision/Image4.png" Stretch="Fill" Width="167"/>
+                                             – среднеожидаемое количество повреждённых изделий
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            a) m = 0
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            <Image x:Name="Image17_png" Height="41" Source="decision/Image9.png" Stretch="Fill" Width="198"/>
+                                            – вероятность того, что все изделия дойдут в целости и сохранности.
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            б) m = 3
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            <Image x:Name="Image18_png" Height="45" Source="decision/Image5.png" Stretch="Fill" Width="159"/>
+                                            – вероятность того, что в пути будут повреждены ровно 3 изделия из 500.
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            в) m > 3
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            А тут всё немножко хитрее. Сначала найдём
+                                            <Image x:Name="Image19_png" Height="24" Source="decision/Image6.png" Stretch="Fill" Width="61"/>
+                                            – вероятность того, что в пути повредятся не более трёх изделий. По теореме сложения вероятностей несовместных событий:
+                                        </TextBlock>
+                                        <Image x:Name="Image20_png" Height="68" Source="decision/Image7.png" Stretch="Fill" Width="492" HorizontalAlignment="Left"/>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            По теореме сложения вероятностей противоположных событий:
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            <Image x:Name="Image21_png" Height="25" Source="decision/Image8.png" Stretch="Fill" Width="298"/>
+                                            – вероятность того, что при доставке будет повреждено более 3 изделий.
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                            Ответ: а) 0,2231... б) 0,1255... в) 0,0656
+                                        </TextBlock>
+                                    </StackPanel>
                                 </Expander>
                             </StackPanel>
                         </Expander>
