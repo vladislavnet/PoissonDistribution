@@ -135,17 +135,21 @@
             <TabItem Header="Калькулятор" Width="247" >
                 <ScrollViewer>
                     <StackPanel Orientation="Vertical" Margin="0,20,0,0">
-                        <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal" 
+                                    Margin="0,0,0,5"
+                                    HorizontalAlignment="Center">
                             <Label Content="n = "
                                    HorizontalContentAlignment="Right"
-                                   Width="190"/>
+                                   />
                             <TextBox Width="180"
                                      x:Name="txtCountTests"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Width="371" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,0,0,5"
+                                    HorizontalAlignment="Center">
                             <Label Content="p = " 
                                    HorizontalContentAlignment="Right"
-                                   Width="190"/>
+                                   />
                             <TextBox Width="180"
                                      x:Name="txtProbability"/>
                         </StackPanel>
@@ -156,7 +160,7 @@
                             <TextBox Width="180" x:Name="txtM"/>
                         </StackPanel>-->
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox x:Name="cbWillCome"
                                       Content="Наступит"
@@ -168,7 +172,7 @@
                             <Label Content="раз" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox x:Name="cbLess"
                                       Content="Менее"
@@ -180,7 +184,7 @@
                             <Label Content="раз" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox Content="Не менее"
                                       x:Name="cbNotLess"
@@ -192,7 +196,7 @@
                             <Label Content="раз" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox Content="Более"
                                       x:Name="cbMore"
@@ -204,7 +208,7 @@
                             <Label Content="раз" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox Content="Не более"
                                       x:Name="cbNoMore"
@@ -216,7 +220,7 @@
                             <Label Content="раз" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox Content="Не менее"
                                       x:Name="cbNotLessNoMore"
@@ -231,7 +235,7 @@
                             <Label Content="раз" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
-                                    Width="371"
+                                    Width="270"
                                     Margin="0,0,0,5">
                             <CheckBox Content="Наступит хотя бы раз"
                                       x:Name="cbStepAtLeastOnce"
@@ -242,15 +246,16 @@
                         <Button Content="Вычислить" 
                                 Height="25"
                                 Width="100"
-                                Margin="0,0,0,20"
+                                Margin="0,10,0,20"
                                 Click="Button_Click"/>
-                        <lvc:CartesianChart Series="{Binding SeriesCollection,
+                        <lvc:CartesianChart x:Name="chart"
+                                            Series="{Binding SeriesCollection,
                                             UpdateSourceTrigger=PropertyChanged,
                                             Mode=TwoWay}" 
                                             LegendLocation="Right" 
                                             Width="600"
                                             Height="300"
-                                            >
+                                            Visibility="Collapsed">
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Title="P(X = m)" LabelFormatter="{Binding YFormatter,
                                           UpdateSourceTrigger=PropertyChanged,
@@ -264,7 +269,9 @@
                                 </lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
-                        <StackPanel x:Name="spTextcontent" Orientation="Vertical">
+                        <StackPanel Margin="20,10,20,0" 
+                                    x:Name="spTextcontent"
+                                    Orientation="Vertical">
                             
                         </StackPanel>
                     </StackPanel>

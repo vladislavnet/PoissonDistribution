@@ -60,6 +60,7 @@ namespace PoissonDistribution
         }
         private void printChart()
         {
+            chart.Visibility = Visibility.Visible;
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -99,8 +100,25 @@ namespace PoissonDistribution
                     Content = $"P({i}) = {poissonDistribution.Disperion}^{i} * e^{poissonDistribution.Disperion} / {i}! = {probabilities[i]}"
                 }) ;
             }
-            
-            if (cbWillCome.IsChecked == true 
+
+            printWillCome();
+
+            printLess();
+
+            printNotLess();
+
+            printMore();
+
+            printNoMore();
+
+            printNotLessNoMore();
+
+            printStepAtLeastOnce();
+        }
+
+        private void printWillCome()
+        {
+            if (cbWillCome.IsChecked == true
                 && int.TryParse(txtWillCome.Text, out int resultWillCome))
             {
                 spTextcontent.Children.Add(new Label
@@ -109,16 +127,20 @@ namespace PoissonDistribution
                 });
                 string strWillCome = $"P({resultWillCome}) = {poissonDistribution.Disperion}^{resultWillCome} " +
                     $"* e^{poissonDistribution.Disperion} / {resultWillCome}!";
-                spTextcontent.Children.Add(new Label
+                spTextcontent.Children.Add(new TextBlock
                 {
-                    Content = resultWillCome < probabilities.Count() ? strWillCome + $" = {probabilities[resultWillCome]}" 
+                    Text = resultWillCome < probabilities.Count() ? strWillCome + $" = {probabilities[resultWillCome]}"
                         : strWillCome + " = 0",
-                    FontWeight = FontWeights.Bold
+                    FontWeight = FontWeights.Bold,
+                    TextWrapping = TextWrapping.WrapWithOverflow
                 });
             }
+        }
 
-            if(cbLess.IsChecked == true
-                && int.TryParse(txtLess.Text, out int resultLess))
+        private void printLess()
+        {
+            if (cbLess.IsChecked == true
+               && int.TryParse(txtLess.Text, out int resultLess))
             {
                 spTextcontent.Children.Add(new Label
                 {
@@ -126,27 +148,31 @@ namespace PoissonDistribution
                 });
                 int index = 0;
                 double sumLess = 0.0;
-                string strLess = $"P(X < {resultLess}) = " ;
-                while(index < resultLess)
+                string strLess = $"P(X < {resultLess}) = ";
+                while (index < resultLess)
                 {
                     if (probabilities.Length >= index + 1)
                     {
                         sumLess += probabilities[index];
-                        if(index != 0)
+                        if (index != 0)
                             strLess += $" + {probabilities[index].ToString("F5")}";
                         else
                             strLess += $"{probabilities[index].ToString("F5")}";
                     }
-                    index++; 
+                    index++;
                 }
-                spTextcontent.Children.Add(new Label
+                spTextcontent.Children.Add(new TextBlock
                 {
-                    Content = strLess + $" = {Math.Round(sumLess,5)}",
-                    FontWeight = FontWeights.Bold
+                    Text = strLess + $" = {Math.Round(sumLess, 5)}",
+                    FontWeight = FontWeights.Bold,
+                    TextWrapping = TextWrapping.WrapWithOverflow
                 });
             }
+        }
 
-            if(cbNotLess.IsChecked == true
+        private void printNotLess()
+        {
+            if (cbNotLess.IsChecked == true
                 && int.TryParse(txtNotLess.Text, out int resultNotLess))
             {
                 spTextcontent.Children.Add(new Label
@@ -165,14 +191,18 @@ namespace PoissonDistribution
                     }
                     index++;
                 }
-                spTextcontent.Children.Add(new Label
+                spTextcontent.Children.Add(new TextBlock
                 {
-                    Content = strNotLess + $") = {Math.Round(1 - sumNotLess, 5)}",
-                    FontWeight = FontWeights.Bold
+                    Text = strNotLess + $") = {Math.Round(1 - sumNotLess, 5)}",
+                    FontWeight = FontWeights.Bold,
+                    TextWrapping = TextWrapping.WrapWithOverflow
                 });
             }
+        }
 
-            if(cbMore.IsChecked == true
+        private void printMore()
+        {
+            if (cbMore.IsChecked == true
                 && int.TryParse(txtMore.Text, out int resultMore))
             {
                 spTextcontent.Children.Add(new Label
@@ -181,7 +211,7 @@ namespace PoissonDistribution
                 });
                 double sumMore = 0.0;
                 string strMore = $"P(x > {resultMore}) = ";
-                for(int i = resultMore + 1; i < probabilities.Length; i++)
+                for (int i = resultMore + 1; i < probabilities.Length; i++)
                 {
                     sumMore += probabilities[i];
                     if (i == resultMore + 1)
@@ -196,8 +226,11 @@ namespace PoissonDistribution
                     TextWrapping = TextWrapping.WrapWithOverflow
                 });
             }
+        }
 
-            if(cbNoMore.IsChecked == true
+        private void printNoMore()
+        {
+            if (cbNoMore.IsChecked == true
                 && int.TryParse(txtNoMore.Text, out int resultNoMore))
             {
                 spTextcontent.Children.Add(new Label
@@ -221,8 +254,11 @@ namespace PoissonDistribution
                     TextWrapping = TextWrapping.WrapWithOverflow
                 });
             }
+        }
 
-            if(cbNotLessNoMore.IsChecked == true
+        private void printNotLessNoMore()
+        {
+            if (cbNotLessNoMore.IsChecked == true
                 && int.TryParse(txtNotLessNotMore1.Text, out int resultNotLessNoMore1)
                 && int.TryParse(txtNotLessNotMore2.Text, out int resultNotLessNoMore2))
             {
@@ -233,7 +269,7 @@ namespace PoissonDistribution
                 });
                 double sumNotLessNoMore = 0.0;
                 string strNotLessNoMore = $"P({resultNotLessNoMore1} <= X <= {resultNotLessNoMore2}) = ";
-                for(int i = resultNotLessNoMore1; i < resultNotLessNoMore2 + 1; i++)
+                for (int i = resultNotLessNoMore1; i < resultNotLessNoMore2 + 1; i++)
                 {
                     if (probabilities.Length == i)
                         break;
@@ -250,8 +286,11 @@ namespace PoissonDistribution
                     TextWrapping = TextWrapping.WrapWithOverflow
                 });
             }
+        }
 
-            if(cbStepAtLeastOnce.IsChecked == true)
+        private void printStepAtLeastOnce()
+        {
+            if (cbStepAtLeastOnce.IsChecked == true)
             {
                 spTextcontent.Children.Add(new Label
                 {
@@ -266,7 +305,6 @@ namespace PoissonDistribution
                     FontWeight = FontWeights.Bold
                 });
             }
-            
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e) 
