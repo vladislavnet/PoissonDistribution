@@ -271,7 +271,34 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Задачи" Width="247">
-
+                <ScrollViewer>
+                    <StackPanel>
+                        <Expander Header="Задача1" FontSize="18" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                    В новом микрорайоне поставлено 10000 кодовых замков на входных дверях домов. Вероятность выхода из строя одного замка в течение месяца равна 0,0002. Найти вероятность того, что за месяц откажет ровно 1 замок.
+                                </TextBlock>
+                                <Expander Header="Ответ" FontSize="14" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                                    <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                        Ответ: 0,2707...
+                                    </TextBlock>
+                                </Expander>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="Задача2" FontSize="18" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                   Завод отправил в торговую сеть 500 изделий. Вероятность повреждения изделия в пути равна 0,003. Найти вероятность того, что при транспортировке будет повреждено: а) ни одного изделия, б) ровно три изделия, в) более трех изделий.
+                                </TextBlock>
+                                <Expander Header="Ответ" FontSize="14" BorderThickness="2" BorderBrush="LightGray" Margin="0 2 0 2" >
+                                    <TextBlock TextWrapping="Wrap" Margin="5" FontSize="14">
+                                        Ответ: а) 0,2231... б) 0,1255... в) 0,0656
+                                    </TextBlock>
+                                </Expander>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
     </Grid>
